@@ -55,7 +55,6 @@ void execute_command(char* command)
 	char* arg[MAX_ARGS]; /**strings for command arguments**/
 	int status; /**Stores the exit status of the child process**/
 	char* argv[MAX_ARGS]; /**Tokenizes the command and stroes it in the arg array**/
-	int argc;
 
 	if (command == NULL || command[0] == '\0')
 	{
@@ -70,9 +69,8 @@ void execute_command(char* command)
 		perror("Fork failed");/**Prints an error message if forking failed**/
 		exit(EXIT_FAILURE);/**Failure staus, exits the program**/
 	}
-	else if (Process_id == 0)
+	else if (Process_id == 0 || argv[MAX_ARGS] != NULL)
 	{
-		split_toke(command, argv, &argc);
 
 		execve(argv[0], arg, NULL);/**executes the user's command**/
 

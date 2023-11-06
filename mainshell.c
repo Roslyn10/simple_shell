@@ -9,11 +9,13 @@
 
 int main(void)
 {
+	char *command; 
+
         if (isatty(STDIN_FILENO))
         {
                 while (1) /**Allows the command to loop indefinetly**/
                 {
-                        char *command = read_command(); /**Reads command from the user**/
+                        command = read_command(); /**Reads command from the user**/
 
                         if (command == NULL)
                         {

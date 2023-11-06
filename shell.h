@@ -12,6 +12,8 @@
 #include <stdarg.h>
 #include <sys/wait.h>
 
+#define MAX_ARGS 100
+
 /**Main shell code**/
 void display_prompt(void);
 
