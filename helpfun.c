@@ -1,33 +1,13 @@
 #include "shell.h"
 
 /**
- * _putchar - writes the character c to stdout
- * @c: The character to print
- *
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
+ * new_line - A function that prints a new line
+ * Description _ prints a new line wothout using printf
+ * Return: Nothing
  */
 
-int _puctchar(char c)
+void new_line(void)
 {
-	return (write(1, &c, 1));
-}
-
-/**
- * _strlen - A function that calculates the lenght of a string
- * Description - Calculates length of string and returns number of characters
- * @str: Input/Given string
- * Return: The lenght of the string
- */
-
-size_t _strlen(const char *str)
-{
-	size_t len = 0;
-
-	while (str[len] != '\0')
-	{
-		len++;
-	}
-
-	return (len);
+	const char n_l[] = "\n";
+	write(STDOUT_FILENO, n_l, sizeof(n_l) - 1);
 }
