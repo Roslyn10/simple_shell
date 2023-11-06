@@ -12,3 +12,22 @@ int _puctchar(char c)
 {
 	return (write(1, &c, 1));
 }
+
+/**
+ * _strlen - A function that calculates the lenght of a string
+ * Description - Calculates length of string and returns number of characters
+ * @str: Input/Given string
+ * Return: The lenght of the string
+ */
+
+size_t _strlen(const char *str)
+{
+	size_t len = 0;
+
+	while (str[len] != '\0')
+	{
+		len++;
+	}
+
+	return (len);
+}
