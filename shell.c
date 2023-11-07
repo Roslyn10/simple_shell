@@ -1,5 +1,9 @@
 #include "shell.h"
 
+void display_prompt(void);
+char *read_command(void);
+void execute_command(char *command);
+
 /**
  * display_prompt - A function that displays the '$' prompt
  * Description - Displays the '$' prompt at the beginning of the line
@@ -8,7 +12,7 @@
 
 void display_prompt(void)
 {
-	char *prompt = "simple_shell$ ";
+	char *prompt = "$ ";
 	write(STDOUT_FILENO, prompt, _strlen(prompt));
 }
 
@@ -20,26 +24,26 @@ void display_prompt(void)
 
 char *read_command(void)
 {
-	char* input = NULL; /**input/command, declares a pointer to hold the user input**/
-	size_t length = 0; /**length of input/command initialized to 0**/
-	ssize_t bread; /**a variable to store the number of bytes read**/
+	char *input = NULL;
+	size_t length = 0;
+	int bread;
 
-	display_prompt(); /**Calls the fucntion to display the command prompt**/
+	display_prompt();
 
-	bread = getline(&input, &length, stdin); /**Reads the line/input from the user**/
+	bread = getline(&input, &length, stdin);
 
 	if (bread == -1)
 	{
-		free(input); /**If getline fails, frees the memory allocated for input/command**/
-		return (NULL); /**Returns NUll to indicate an error/ end of input*/
+		free(input);
+		return (NULL);
 	}
 
 	if (bread > 0 && input[bread - 1] == '\n')
 	{
-		input[bread - 1] = '\0';/**if the input contains the '\n', it gets replaced with '\0'**/
+		input[bread - 1] = '\0';
 	}
 
-	return (input); /**Returns the users input**/
+	return (input);
 }
 
 /**
@@ -51,34 +55,48 @@ char *read_command(void)
 
 void execute_command(char* command)
 {
-	pid_t Process_id; /**process id**/
-	char* arg[MAX_ARGS]; /**strings for command arguments**/
-	int status; /**Stores the exit status of the child process**/
-	char* argv[MAX_ARGS]; /**Tokenizes the command and stroes it in the arg array**/
+	pid_t child_pid;
+	int status;
+	char *args[MAX_ARGS];
+	int arg_count = 0;
+	const char *error_msg = "Error: No command provided \n";
+	const char *error = "Error: Fork failed\n";
+	const char *msg = "Error: Execution failed\n";
+	char *token;
+       
+	token = strtok(command, " ");
 
-	if (command == NULL || command[0] == '\0')
+	while (token != NULL && arg_count < MAX_ARGS - 1)
 	{
-		perror("NO command\n"); /**Prints an error message if there is no command inserted**/
+		args[arg_count] = token;
+		arg_count++;
+		token = strtok(NULL, " ");
+	}
+	args[arg_count] = NULL;
+
+	if (arg_count == 0)
+	{
+		write(STDERR_FILENO, error_msg, _strlen(error_msg));
 		return;
 	}
 
-	Process_id = fork(); /**Creates a child process**/
+	child_pid = fork();
 
-	if (Process_id == -1)
+	if (child_pid == -1)
 	{
-		perror("Fork failed");/**Prints an error message if forking failed**/
-		exit(EXIT_FAILURE);/**Failure staus, exits the program**/
+		write(STDERR_FILENO, error, _strlen(error));
+		exit(EXIT_FAILURE);
 	}
-	else if (Process_id == 0 || argv[MAX_ARGS] != NULL)
+	else if (child_pid == 0)
 	{
-
-		execve(argv[0], arg, NULL);/**executes the user's command**/
-
-		perror("Execution failed"); /**Prints an error message if the execution fails**/
-		exit(EXIT_FAILURE);/**exits the processs with failure status**/
+		if (execvp(args[0], args) == -1)
+		{
+			write(STDERR_FILENO, msg, _strlen(msg));
+			exit(EXIT_FAILURE);
+		}
 	}
 	else
 	{
-		wait(&status); /**Waits for the child process to finish**/
+		waitpid(child_pid, & status, 0);
 	}
 }

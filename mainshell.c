@@ -9,24 +9,23 @@
 
 int main(void)
 {
-	char *command; 
+	char *command;
 
-        if (isatty(STDIN_FILENO))
-        {
-                while (1) /**Allows the command to loop indefinetly**/
-                {
-                        command = read_command(); /**Reads command from the user**/
+	if (isatty(STDIN_FILENO))
+	{
+		while (1)
+		{
+			command = read_command();
 
-                        if (command == NULL)
-                        {
-                                new_line(); /**Used to print a new line**/
-                                exit(1); /**EOF = Ctrl+D**/
-                        }
+			if (command == NULL)
+			{
+				write(STDOUT_FILENO, "\n", 1);
+				exit(1);
+			}
 
-                        execute_command(command); /**Executes user command/input**/
-                        free(command); /**Frees the memory allocated to the command/input**/
-                }
-        }
-
-        return (0);
+			execute_command(command);
+			free(command);
+		}
+	}
+	return (0);
 }

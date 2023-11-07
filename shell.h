@@ -16,12 +16,15 @@
 
 /**Main shell code**/
 void display_prompt(void);
+char *read_command(void);
+void execute_command(char *command);
+int main(void);
 
 /**Prints a new line after exiting the code**/
 void new_line(void);
 
 /** Used instead of printf**/
-int _puctchar(char c);
+int _putchar(char c);
 
 /** String functions**/
 size_t _strlen(const char *str);
