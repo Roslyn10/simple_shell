@@ -9,5 +9,6 @@
 void new_line(void)
 {
 	const char n_l[] = "\n";
-	write(STDOUT_FILENO, n_l, sizeof(n_l) - 1);	
+
+	write(STDOUT_FILENO, n_l, sizeof(n_l) - 1);
 }

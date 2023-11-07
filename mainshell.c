@@ -2,7 +2,7 @@
 
 /**
  * main - Implements the loop and makes sure that it can run indefinetly
- * Description - Makes sure that the loop runs indefinetly. Exitloop with Ctrl+D
+ * Description - Makes sure that it runs indefinetly. Exit loop with Ctrl+D
  * Aditional info - Create a printf function/printing function
  * Return: 0 Always (Success)
  */

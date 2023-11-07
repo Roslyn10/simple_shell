@@ -13,6 +13,7 @@ void execute_command(char *command);
 void display_prompt(void)
 {
 	char *prompt = "$ ";
+
 	write(STDOUT_FILENO, prompt, _strlen(prompt));
 }
 
@@ -47,13 +48,13 @@ char *read_command(void)
 }
 
 /**
- * execute_command - A function that executes the command/ input given by the user
+ * execute_command - A function that executes the command/ input given by user
  * Description - Executes the command/input inerted by the user
- * @command - Command/input from user
+ * @command: Command/input from user
  * Return: Nothing
  */
 
-void execute_command(char* command)
+void execute_command(char *command)
 {
 	pid_t child_pid;
 	int status;
@@ -63,7 +64,7 @@ void execute_command(char* command)
 	const char *error = "Error: Fork failed\n";
 	const char *msg = "Error: Execution failed\n";
 	char *token;
-       
+
 	token = strtok(command, " ");
 
 	while (token != NULL && arg_count < MAX_ARGS - 1)
@@ -97,6 +98,6 @@ void execute_command(char* command)
 	}
 	else
 	{
-		waitpid(child_pid, & status, 0);
+		waitpid(child_pid, &status, 0);
 	}
 }
