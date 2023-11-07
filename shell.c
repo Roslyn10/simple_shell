@@ -17,7 +17,7 @@ void display_prompt(void)
 }
 
 /**
- * read_command - Afunction that reads the input/command that the user types
+ * read_command - A function that reads the input/command that the user types
  * Description - Reads the command inserted by the user
  * Return: The input
  */
