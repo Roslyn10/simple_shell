@@ -60,9 +60,8 @@ void execute_command(char *command)
 	int status;
 	char *args[MAX_ARGS];
 	int arg_count = 0;
-	const char *error_msg = "Error: No command provided \n";
 	const char *error = "Error: Fork failed\n";
-	const char *msg = "Error: Execution failed\n";
+	const char *msg = "hsh: No such file or directory\n";
 	char *token;
 
 	token = strtok(command, " ");
@@ -77,7 +76,6 @@ void execute_command(char *command)
 
 	if (arg_count == 0)
 	{
-		write(STDERR_FILENO, error_msg, _strlen(error_msg));
 		return;
 	}
 
