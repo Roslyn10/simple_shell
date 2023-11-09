@@ -82,7 +82,7 @@ void execute_command(char *command)
 	if (strcmp(command, "exit") == 0)
 	{
 		free(command);
-		return;
+		break;
 	}
 
 	child_pid = fork();
