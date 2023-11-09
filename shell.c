@@ -79,6 +79,12 @@ void execute_command(char *command)
 		return;
 	}
 
+	if (strcmp(command, "exit") == 0)
+	{
+		free(command);
+		break;
+	}
+
 	child_pid = fork();
 
 	if (child_pid == -1)
