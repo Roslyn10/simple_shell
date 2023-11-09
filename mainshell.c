@@ -23,12 +23,6 @@ int main(void)
 				exit(1);
 			}
 
-			if (strcmp(command, "exit") == 0)
-			{
-				free(command);
-				break;
-			}
-
 			execute_command(command);
 			free(command);
 		}
