@@ -5,14 +5,14 @@ char *read_command(void);
 void execute_command(char *command);
 
 /**
- * display_prompt - A function that displays the '$' prompt
- * Description - Displays the '$' prompt at the beginning of the line
+ * display_prompt - A function that displays the 'CJ' prompt
+ * Description - Displays the 'CJ' prompt at the beginning of the line
  * Return: Nothing
  */
 
 void display_prompt(void)
 {
-	char *prompt = "$ ";
+	char *prompt = "CJ ";
 
 	write(STDOUT_FILENO, prompt, _strlen(prompt));
 }
@@ -97,5 +97,10 @@ void execute_command(char *command)
 	else
 	{
 		waitpid(child_pid, &status, 0);
+	}
+	if (strcmp(command == "exit"))
+	{
+		free(command);
+		return;
 	}
 }
