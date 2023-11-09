@@ -12,7 +12,6 @@ int main(void)
 	char *command;
 	const char *cd = "/path/to/directory";
 	int result;
-	char *error = "No such file of directory";
 
 
 	if (isatty(STDIN_FILENO))
@@ -32,10 +31,7 @@ int main(void)
 			if (result == 0)
 			{
 				write(STDOUT_FILENO, "\n", 1);
-			}
-			else
-			{
-				write(STDOUT_FILENO, error, 1);
+				exit(1);
 			}
 
 			execute_command(command);
