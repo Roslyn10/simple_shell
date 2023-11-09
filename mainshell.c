@@ -10,7 +10,6 @@
 int main(void)
 {
 	char *command;
-	const char *exit;
 
 	if (isatty(STDIN_FILENO))
 	{
@@ -24,7 +23,7 @@ int main(void)
 				exit(1);
 			}
 
-			if (strcmp(command, exit) == 0)
+			if (strcmp(command, "exit") == 0)
 			{
 				free(command);
 				break;
