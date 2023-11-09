@@ -1,4 +1,4 @@
-#include "shell.h"
+#include "cj.h"
 
 void display_prompt(void);
 char *read_command(void);
@@ -79,7 +79,7 @@ void execute_command(char *command)
 		return;
 	}
 
-	if (strcmp(command, "exit") == 0)
+	if (strcmp(command, "exit") == 0) /**Need to write my own strcmp function**/
 	{
 		free(command);
 		break;

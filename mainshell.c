@@ -1,4 +1,4 @@
-#include "shell.h"
+#include "cj.h"
 
 /**
  * main - Implements the loop and makes sure that it can run indefinetly
