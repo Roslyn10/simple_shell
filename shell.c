@@ -88,7 +88,7 @@ void execute_command(char *command)
 	}
 	else if (child_pid == 0)
 	{
-		if (execvp(args[0], args) == -1)
+		if (execvp(args[0], args) == -1) /**Change the function to an allowed function**/
 		{
 			write(STDERR_FILENO, msg, _strlen(msg));
 			exit(EXIT_FAILURE);
