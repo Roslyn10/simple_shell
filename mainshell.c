@@ -26,7 +26,7 @@ int main(void)
 			if (strcmp(command, "exit") == 0)
 			{
 				free(command);
-				break
+				break;
 			}
 
 			execute_command(command);
