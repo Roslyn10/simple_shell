@@ -12,7 +12,7 @@ void execute_command(char *command);
 
 void display_prompt(void)
 {
-	char *prompt = "CJ ";
+	char *prompt = "Command-Justice ";
 
 	write(STDOUT_FILENO, prompt, _strlen(prompt));
 }
