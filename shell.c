@@ -98,9 +98,4 @@ void execute_command(char *command)
 	{
 		waitpid(child_pid, &status, 0);
 	}
-	if (strcmp(command == "exit"))
-	{
-		free(command);
-		return;
-	}
 }
