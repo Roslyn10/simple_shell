@@ -1,18 +1,19 @@
 0x16. C - Simple Shell
 
-Description
-------------
+Command Justice
+----------------
 
-Authors
+Features
+--------
+
+Limitations
+-----------
+
+Resources used
+--------------
+
+Contact
 -------
-* Roslyn Lewis
-* Akinsanya Kehinde Sandra
 
 Usage
 -----
-
-Instructions
--------------
-
-Resources
----------- 
