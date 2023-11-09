@@ -79,10 +79,10 @@ void execute_command(char *command)
 		return;
 	}
 
-	if (strcmp(command, "exit") == 0) /**Need to write my own strcmp function**/
+	if (strcmp(args[0], "exit") == 0)
 	{
 		free(command);
-		kill(command, SIGTERM);
+		exit(EXIT_SUCCESS);
 	}
 
 	child_pid = fork();
