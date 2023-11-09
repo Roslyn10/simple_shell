@@ -28,6 +28,7 @@ int _putchar(char c);
 
 /** String functions**/
 size_t _strlen(const char *str);
+int _strcmp(const char *s1, const char *s2);
 
 
 #endif /**SHELL_H**/

@@ -31,3 +31,26 @@ size_t _strlen(const char *str)
 
 	return (len);
 }
+
+/**
+ * _strcmp - A function that compares two strings character by character
+ * Description - Compares two strings character by character
+ * @s1: First string
+ * @s2: Second string
+ * Return: 0 Always (Success)
+ */
+
+int _strcmp(const char *s1, const char *s2)
+{
+	int index = 0;
+	
+	while (s1[index] != '\0' && s2[index] != '\0')
+	{
+		if (s1[index] != s2[index])
+		{
+			return (s1[index] - s2[index]);
+		}
+		index++;
+	}
+	return (0);
+}
