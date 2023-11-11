@@ -12,10 +12,3 @@ void new_line(void)
 
 	write(STDOUT_FILENO, n_l, sizeof(n_l) - 1);
 }
-
-/**
- * cd _ A function that changes directoris
- * Description - Should work like the cd command
- * return: 0 Always (Success)
- */
-
