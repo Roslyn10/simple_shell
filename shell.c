@@ -85,6 +85,17 @@ void execute_command(char *command)
 		free(command);
 		exit(EXIT_SUCCESS);
 	}
+	if (_strcmp(args[0], "cd") == 0)
+	{
+		if (arg_count > 1)
+		{
+			if (chdir(args[1]) != 0)
+			{
+				return;
+			}
+		}
+	}
+
 
 	child_pid = fork();
 
