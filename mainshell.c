@@ -10,7 +10,6 @@
 int main(void)
 {
 	char *command;
-	const char *cd = "/path/to/directory";
 	int result;
 
 
@@ -25,9 +24,6 @@ int main(void)
 				write(STDOUT_FILENO, "\n", 1);
 				exit(1);
 			}
-
-			result = chdir(cd);
-
 			if (result == 0)
 			{
 				write(STDOUT_FILENO, "\n", 1);
