@@ -95,7 +95,7 @@ void execute_command(char *command)
 	}
 	else if (child_pid == 0)
 	{
-		if (execvp(args[0], args/**, envp**/) == -1)
+		if (_execvp(args[0], args/**, envp**/) == -1)
 		{
 			write(STDERR_FILENO, msg, _strlen(msg));
 			exit(EXIT_FAILURE);
