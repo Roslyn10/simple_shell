@@ -27,6 +27,7 @@ int _execvp(const char *file, char *const argv[])
 
 	if (pid == -1)
 	{
+		printf("Im over hear");
 		return (-1);
 	}
 	else if (pid == 0)
