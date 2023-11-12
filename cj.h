@@ -30,5 +30,6 @@ int _putchar(char c);
 size_t _strlen(const char *str);
 int _strcmp(const char *s1, const char *s2);
 
-
+/**helpful functions**/
+int _execvp(const char *file, char *const argv[]);
 #endif /**SHELL_H**/
