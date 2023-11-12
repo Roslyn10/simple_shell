@@ -80,7 +80,7 @@ void execute_command(char *command)
 		return;
 	}
 
-	if (_strcmp(args[0], "exit") == 0)
+	if (_strcmp(args[1], "exit") == 0)
 	{
 		free(command);
 		exit(EXIT_SUCCESS);

@@ -24,6 +24,9 @@ int main(void)
 				write(STDOUT_FILENO, "\n", 1);
 				exit(1);
 			}
+
+			result = chdir("/path/to/directory");
+
 			if (result == 0)
 			{
 				write(STDOUT_FILENO, "\n", 1);
