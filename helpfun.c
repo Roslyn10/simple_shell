@@ -20,30 +20,36 @@ void new_line(void)
  *
  */
 
-int _execvp(const char *file, char *const argv[]) {
-    pid_t pid = fork();
-    int status;
+int _execvp(const char *file, char *const argv[])
+{
+	pid_t pid = fork();
+	int status;
 
-    if (pid == -1) {
-        perror("fork");
-        return -1;
-    } else if (pid == 0) {
-        if (execvp(file, argv) == -1) {
-            perror("execvp");
-            exit(EXIT_FAILURE);
-        }
-    } else {
-        if (waitpid(pid, &status, 0) == -1) {
-            perror("waitpid");
-            return -1;
-        }
-
-        if (WIFEXITED(status)) {
-            return WEXITSTATUS(status);
-        } else {
-            return -1;
-        }
-    }
-
-    return -1;
+	if (pid == -1)
+	{
+		return (-1);
+	}
+	else if (pid == 0)
+	{
+		if (execvp(file, argv) == -1)
+		{
+			exit(EXIT_FAILURE);
+		}
+	}
+	else
+	{
+		if (waitpid(pid, &status, 0) == -1)
+		{
+			return (-1);
+		}
+		if (WIFEXITED(status))
+		{
+			return (WEXITSTATUS(status));
+		}
+		else
+		{
+			return (-1);
+		}
+	}
+	return (-1);
 }
