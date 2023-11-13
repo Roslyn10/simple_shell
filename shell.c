@@ -64,7 +64,8 @@ void execute_command(char *command)
 	char *args[MAX_ARGS];
 	int arg_count = 0;
 	const char *error = "Error: Fork failed\n";
-	/**const char *msg = "hsh: %s: not found\n";**/
+	const char *msg_pre = "hsh: ";
+	const char *msg_suf = ": not found\n";
 	char *token;
 
 	shell_count++;
@@ -87,7 +88,7 @@ void execute_command(char *command)
 	{
 		if (arg_count > 1)
 		{
-			if (chdir(args[1]) != 0)
+			if (chdir(args[0]) != 0)
 			{
 				return;
 			}
@@ -106,8 +107,11 @@ void execute_command(char *command)
 	{
 		if (execvp(args[0], args/**, envp**/) == -1)
 		{
-			/**write(STDERR_FILENO, msg, _strlen(msg));**/
-			printf("hsh: %d: %s: not found\n", shell_count, command);
+			write(STDERR_FILENO, msg_pre, _strlen(msg_pre));
+			write(STDERR_FILENO, itoa(shell_count), _strlen(itoa(shell_count)));
+			write(STDERR_FILENO, ": ", 2);
+			write(STDERR_FILENO, args[0], _strlen(args[0]));
+			write(STDERR_FILENO, msg_suf, _strlen(msg_suf));
 			exit(EXIT_FAILURE);
 		}
 	}
