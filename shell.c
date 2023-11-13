@@ -4,6 +4,7 @@ void display_prompt(void);
 char *read_command(void);
 void execute_command(char *command);
 
+
 /**
  * display_prompt - A function that displays the 'CJ' prompt
  * Description - Displays the 'CJ' prompt at the beginning of the line
@@ -56,15 +57,17 @@ char *read_command(void)
 
 void execute_command(char *command)
 {
+	static int shell_count = 0;
 	pid_t child_pid;
 	/**char *envp[MAX_ARGS];**/
 	int status;
 	char *args[MAX_ARGS];
 	int arg_count = 0;
 	const char *error = "Error: Fork failed\n";
-	const char *msg = "hsh: No such file or directory\n";
+	/**const char *msg = "hsh: %s: not found\n";**/
 	char *token;
 
+	shell_count++;
 	token = strtok(command, " ");
 
 	while (token != NULL && arg_count < MAX_ARGS - 1)
@@ -101,9 +104,10 @@ void execute_command(char *command)
 	}
 	else if (child_pid == 0)
 	{
-		if (_execvp(args[0], args/**, envp**/) == -1)
+		if (execvp(args[0], args/**, envp**/) == -1)
 		{
-			write(STDERR_FILENO, msg, _strlen(msg));
+			/**write(STDERR_FILENO, msg, _strlen(msg));**/
+			printf("hsh: %d: %s: not found\n", shell_count, command);
 			exit(EXIT_FAILURE);
 		}
 	}

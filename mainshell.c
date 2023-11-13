@@ -36,7 +36,7 @@ int main(void)
 			if (_strcmp(command, "exit") == 0)
 			{
 				free(command);
-				exit(EXIT_SUCCESS);
+				break;
 			}
 
 			execute_command(command);
