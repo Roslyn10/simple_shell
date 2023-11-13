@@ -17,7 +17,9 @@ void new_line(void)
  * _execvp - A function used for process execution, which replaces the current.
  * . process image with a new one
  * Desription - Replaces the program with a speified one
- *
+ * @file:
+ * @argv:
+ * Return: -1
  */
 
 int _execvp(const char *file, char *const argv[])
@@ -27,7 +29,6 @@ int _execvp(const char *file, char *const argv[])
 
 	if (pid == -1)
 	{
-		printf("Im over hear");
 		return (-1);
 	}
 	else if (pid == 0)

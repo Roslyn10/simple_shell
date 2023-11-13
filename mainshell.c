@@ -33,6 +33,12 @@ int main(void)
 				exit(1);
 			}
 
+			if (_strcmp(command, "exit") == 0)
+			{
+				free(command);
+				exit(EXIT_SUCCESS);
+			}
+
 			execute_command(command);
 			free(command);
 		}

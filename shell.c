@@ -80,11 +80,6 @@ void execute_command(char *command)
 		return;
 	}
 
-	if (_strcmp(args[0], "exit") == 0)
-	{
-		free(command);
-		exit(EXIT_SUCCESS);
-	}
 	if (_strcmp(args[0], "cd") == 0)
 	{
 		if (arg_count > 1)
@@ -111,7 +106,7 @@ void execute_command(char *command)
 			write(STDERR_FILENO, msg, _strlen(msg));
 			exit(EXIT_FAILURE);
 		}
-	}						
+	}
 	else
 	{
 		waitpid(child_pid, &status, 0);
