@@ -14,7 +14,11 @@ Features
 
 Limitations
 -----------
+There were issues during commit which led to some conflicts and thereby caused some delay with the project.
 
+Appreciation
+------------
+Appreciation goes to both contributors for coooeeation in making the project a success and meeting up with the deadline
 
 
 Resources used
