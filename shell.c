@@ -107,11 +107,11 @@ void execute_command(char *command)
 	{
 		if (execvp(args[0], args/**, envp**/) == -1)
 		{
-			write(STDERR_FILENO, msg_pre, _strlen(msg_pre));
-			write(STDERR_FILENO, itoa(shell_count), _strlen(itoa(shell_count)));
-			write(STDERR_FILENO, ": ", 2);
-			write(STDERR_FILENO, args[0], _strlen(args[0]));
-			write(STDERR_FILENO, msg_suf, _strlen(msg_suf));
+			_puts(msg_pre);
+			_puts(itoa(shell_count));
+			_puts(": ");
+			_puts(args[0]);
+			_puts(msg_suf);
 			exit(EXIT_FAILURE);
 		}
 	}
