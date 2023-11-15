@@ -1,8 +1,8 @@
 #include "cj.h"
-dd88f38cc5122c5894e1
+
 void display_prompt(void);
 char *read_command(void);
-void execute_command(char *command);
+void execute_command(char *command, ino_t *info);
 
 
 /**
