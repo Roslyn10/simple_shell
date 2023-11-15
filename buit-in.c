@@ -1,7 +1,5 @@
 #include "cj.h"
 
-
-
 /**
  * func_printenv - prints the current environment
  * @environ: environment variable
