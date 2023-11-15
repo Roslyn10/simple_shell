@@ -17,8 +17,8 @@ void new_line(void)
  * _execvp - A function used for process execution, which replaces the current.
  * . process image with a new one
  * Desription - Replaces the program with a speified one
- * @file:
- * @argv:
+ * @file: A pointer to a string that represents the file or command
+ * @argv: An array of string representing the arguments passed to the command
  * Return: -1
  */
 

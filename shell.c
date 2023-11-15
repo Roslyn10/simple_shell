@@ -57,7 +57,7 @@ char *read_command(void)
 
 void execute_command(char *command)
 {
-	static int shell_count = 0;
+	static int shell_count;
 	pid_t child_pid;
 	/**char *envp[MAX_ARGS];**/
 	int status;
@@ -68,6 +68,7 @@ void execute_command(char *command)
 	const char *msg_suf = ": not found\n";
 	char *token;
 
+	shell_count = 0;
 	shell_count++;
 	token = strtok(command, " ");
 
