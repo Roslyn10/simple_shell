@@ -1,5 +1,5 @@
 #include "cj.h"
-
+dd88f38cc5122c5894e1
 void display_prompt(void);
 char *read_command(void);
 void execute_command(char *command);
@@ -52,10 +52,11 @@ char *read_command(void)
  * execute_command - A function that executes the command/ input given by user
  * Description - Executes the command/input inerted by the user
  * @command: Command/input from user
+ * @info: Holds the information about the environmental variables
  * Return: Nothing
  */
 
-void execute_command(char *command)
+void execute_command(char *command, ino_t *info)
 {
 	static int shell_count;
 	pid_t child_pid;

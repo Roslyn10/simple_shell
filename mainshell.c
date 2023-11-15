@@ -12,6 +12,9 @@ int main(void)
 	char *command;
 	int result;
 
+	ino_t info;
+	init_info(&info);
+
 
 	if (isatty(STDIN_FILENO))
 	{
@@ -22,6 +25,7 @@ int main(void)
 			if (command == NULL)
 			{
 				write(STDOUT_FILENO, "\n", 1);
+				free_info(&info, 1);dd88f38cc5122c5894e1
 				exit(1);
 			}
 
@@ -30,16 +34,20 @@ int main(void)
 			if (result == 0)
 			{
 				write(STDOUT_FILENO, "\n", 1);
+				free_infp(&info, 1);dd88f38cc5122c5894e1
 				exit(1);
 			}
 
 			if (_strcmp(command, "exit") == 0)
 			{
 				free(command);
+				free_info(&info, 1);
 				break;
 			}
 
-			execute_command(command);
+			info_envoriron = get_environ(&info);
+
+			execute_command(command, &info);
 			free(command);
 		}
 	}

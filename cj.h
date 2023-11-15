@@ -72,7 +72,7 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 /**shell**/
 void display_prompt(void);
 char *read_command(void);
-void execute_command(char *command);
+void execute_command(char *command, ino_t *info);
 
 /**shell_loop**/
 int hsh(ino_t *info, char **av);
