@@ -1,4 +1,4 @@
-#includei "cj.h"
+#include "cj.h"
 
 /**
  * bfree - frees a pointer and NULLs the address
