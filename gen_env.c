@@ -8,10 +8,22 @@
  */
 char **get_environ(ino_t *info)
 {
+	char **new_environ;
+
 	if (!info->environ || info->env_changed)
 	{
-		info->environ = list_to_strings(info->env);
-		info->env_changed = 0;
+		new_environ = list_to_strings(nfo->env);
+		if (new_environ)
+		{
+			free(info->environ);
+			info->environ = new_environ;
+			info->env_changed = 0;
+		}
+		else
+		{
+			perror("Error: Memory allocation failure");
+			exit(EXIT_FAILURE);
+		}
 	}
 
 	return (info->environ);
@@ -69,7 +81,7 @@ int _setenv(ino_t *info, char *var, char *value)
 
 	buf = malloc(_strlen(var) + _strlen(value) + 2);
 	if (!buf)
-		return (1);
+		return (-1);
 	_strcpy(buf, var);
 	_strcat(buf, "=");
 	_strcat(buf, value);
@@ -82,6 +94,7 @@ int _setenv(ino_t *info, char *var, char *value)
 			free(node->str);
 			node->str = buf;
 			info->env_changed = 1;
+			free(old_str);
 			return (0);
 		}
 		node = node->next;
