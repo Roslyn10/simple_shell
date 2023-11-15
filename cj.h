@@ -86,13 +86,11 @@ void _puts(char *str);
 int _putchar(char c);
 
 /**string**/
-int _strlen(char *s);
-int _strcmp(char *s1, char *s2);
 char *starts_with(const char *haystack, const char *needle);
 char *_strcat(char *dest, char *src);
 
 /**strings**/
-int _putchar(char c);
+int _putchar1(char c);
 size_t _strlen(const char *str);
 int _strcmp(const char *s1, const char *s2);
 

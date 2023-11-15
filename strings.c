@@ -1,14 +1,14 @@
 #include "cj.h"
 
 /**
- * _putchar - writes the character c to stdout
+ * _putchar1 - writes the character c to stdout
  * @c: The character to print
  *
  * Return: On success 1.
  * On error, -1 is returned, and errno is set appropriately.
  */
 
-int _putchar(char c)
+int _putchar1(char c)
 {
 	return (write(1, &c, 1));
 }
@@ -23,6 +23,11 @@ int _putchar(char c)
 size_t _strlen(const char *str)
 {
 	size_t len = 0;
+
+	if (!str)
+	{
+		return (0);
+	}
 
 	while (str[len] != '\0')
 	{
@@ -52,5 +57,5 @@ int _strcmp(const char *s1, const char *s2)
 		}
 		index++;
 	}
-	return (0);
+	return (s1[index] - s2[index]);
 }
