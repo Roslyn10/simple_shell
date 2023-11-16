@@ -106,4 +106,9 @@ int replace_alias(ino_t *info);
 int replace_vars(ino_t *info);
 int replace_string(char **old, char *new);
 
+/**getline.c**/
+ssize_t get_input(info_t*);
+int _getline(info_t*, char**, size_t*);
+void sigintHandler(int);
+
 #endif /**SHELL_H**/
