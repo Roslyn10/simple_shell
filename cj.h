@@ -27,6 +27,8 @@ void execute_command(char *command/**, ino_t *info**/);
 int _putchar1(char c);
 size_t _strlen(const char *str);
 int _strcmp(const char *s1, const char *s2);
+char *_strtok(char *str, const char *delim);
+char *_strchr(const char *str, int ch);
 
 /**tokenizer**/
 char **strtow(char *str, char *d);

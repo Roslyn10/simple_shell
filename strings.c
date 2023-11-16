@@ -59,3 +59,78 @@ int _strcmp(const char *s1, const char *s2)
 	}
 	return (s1[index] - s2[index]);
 }
+
+/**
+ * _strtok - A function that tokenizers strings
+ * Description - Breaks a string into smaller pieces
+ * @str: Input string
+ * @delim: String containing characters that are delimiters
+ * Return: start of the sting
+ */
+
+char *_strtok(char *str, const char *delim)
+{
+	static char *lastok;
+	char *start;
+	char *end;
+
+	lastok = NULL;
+	if (str != NULL)
+	{
+		lastok = str;
+	}
+	else
+	{
+		if (lastok == NULL)
+			return (NULL);
+	}
+	start = lastok;
+	while (*start != '\0' && _strchr(delim, *start) != '\0')
+	{
+		start++;
+	}
+	if (*start == '\0')
+	{
+		lastok = NULL;
+		return (NULL);
+	}
+
+	end = start;
+	while (*end != '\0' && _strchr(delim, *end) == '\0')
+	{
+		end++;
+	}
+	if (*end != '\0')
+	{
+		*end = '\0';
+		lastok = end + 1;
+	}
+	else
+	{
+		lastok = NULL;
+	}
+	return (start);
+}
+
+/**
+ * _strchr - A function that is used to find the first occurence of a speific
+ * character
+ * Desription - Finds the first ocurence of a char
+ * @str: A pointer to the null-term string
+ * @ch: The character the code is searching for
+ * Return: THe character if it is found or NULL if not
+ */
+
+char *_strchr(const char *str, int ch)
+{
+	while (*str != '\0')
+	{
+		if (*str == ch)
+		{
+			return ((char *)str);
+		}
+		str++;
+	}
+
+	return (NULL);
+}
