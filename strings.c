@@ -85,7 +85,7 @@ char *_strtok(char *str, const char *delim)
 			return (NULL);
 	}
 	start = lastok;
-	while (*start != '\0' && _strchr(delim, *start) != '\0')
+	while (*start != '\0' && _strchr(delim, *start) != NULL)
 	{
 		start++;
 	}
@@ -96,7 +96,7 @@ char *_strtok(char *str, const char *delim)
 	}
 
 	end = start;
-	while (*end != '\0' && _strchr(delim, *end) == '\0')
+	while (*end != '\0' && _strchr(delim, *end) == NULL)
 	{
 		end++;
 	}

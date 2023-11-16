@@ -70,7 +70,7 @@ void execute_command(char *command)
 
 	shell_count = 0;
 	shell_count++;
-	token = strtok(command, " ");
+	token = _strtok(command, " ");
 
 	while (token != NULL && arg_count < MAX_ARGS - 1)
 	{
