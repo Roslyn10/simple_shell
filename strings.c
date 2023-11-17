@@ -1,4 +1,4 @@
-#include "cj.h"
+#include "shell.h"
 
 /**
  * _putchar - writes the character c to stdout
@@ -70,47 +70,33 @@ int _strcmp(const char *s1, const char *s2)
 
 char *_strtok(char *str, const char *delim)
 {
-	static char *lastok;
+	static char *lastok = NULL;
 	char *start;
-	char *end;
 
-	lastok = NULL;
 	if (str != NULL)
 	{
 		lastok = str;
 	}
-	else
+	else if (lastok == NULL)
 	{
-		if (lastok == NULL)
-			return (NULL);
-	}
-	start = lastok;
-	while (*start != '\0' && _strchr(delim, *start) != NULL)
-	{
-		start++;
-	}
-	if (*start == '\0')
-	{
-		lastok = NULL;
 		return (NULL);
 	}
 
-	end = start;
-	while (*end != '\0' && _strchr(delim, *end) == NULL)
+	start = lastok;
+
+	while (*start != '\0' && strchr(delim, *start) != NULL)
 	{
-		end++;
+		start++;
 	}
-	if (*end != '\0')
+
+	if (*start == '\0')
 	{
-		*end = '\0';
-		lastok = end + 1;
+
+		lastok == NULL;
+		return (NULL);
 	}
-	else
-	{
-		lastok = NULL;
-	}
-	return (start);
-}
+
+	
 
 /**
  * _strchr - A function that is used to find the first occurence of a speific
@@ -121,7 +107,7 @@ char *_strtok(char *str, const char *delim)
  * Return: THe character if it is found or NULL if not
  */
 
-char *_strchr(const char *str, int ch)
+/**char *_strchr(const char *str, int ch)
 {
 	while (*str != '\0')
 	{
@@ -133,4 +119,4 @@ char *_strchr(const char *str, int ch)
 	}
 
 	return (NULL);
-}
+}**/

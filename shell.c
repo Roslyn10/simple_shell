@@ -1,4 +1,4 @@
-#include "cj.h"
+#include "shell.h"
 
 void display_prompt(void);
 char *read_command(void);

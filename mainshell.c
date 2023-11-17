@@ -1,57 +1,4 @@
-#include "cj.h"
-
-/**
- * read_from_file - 
- * Description - 
- * @script:
- * Return:
- */
-
-char *read_from_file(FILE *script)
-{
-	char *input = NULL;
-	size_t length = 0;
-	ssize_t bread;
-
-	bread = getlline(&input, &length, script);
-
-	if (bread == -1)
-	{
-		free(input);
-		return (NULL);
-	}
-
-	if (bread > 0 && input[bread - 1] == '\n')
-	{
-		input[bread - 1] = '\0';
-	}
-
-	return (input);
-}
-
-/**
- * non_int - 
- * Desription - 
- * @script:
- * Return:
- */
-
-void non_int(FILE *script)
-{
-	char *command;
-
-	while ((command = read_from_file(script)) != NULL)
-	{
-		if (_strcmp(command, "exit") == 0)
-		{
-			free(command);
-			break;
-		}
-
-		execute_command(command);
-		free(command);
-	}
-}
+#include "shell.h"
 
 /**
  * main - Implements the loop and makes sure that it can run indefinetly
@@ -63,10 +10,6 @@ int main(void)
 {
 	char *command;
 	int result;
-
-	if (argc > 1)
-	{
-
 
 	if (isatty(STDIN_FILENO))
 	{
@@ -88,7 +31,7 @@ int main(void)
 				exit(1);
 			}
 
-			if (_strcmp(command, "exit ") == 0)
+			if (_strcmp(command, "exit") == 0)
 			{
 				free(command);
 				break;
