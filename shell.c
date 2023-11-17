@@ -4,7 +4,6 @@ void display_prompt(void);
 char *read_command(void);
 void execute_command(char *command/**, ino_t *info**/);
 
-
 /**
  * display_prompt - A function that displays the 'CJ' prompt
  * Description - Displays the 'CJ' prompt at the beginning of the line
@@ -13,9 +12,10 @@ void execute_command(char *command/**, ino_t *info**/);
 
 void display_prompt(void)
 {
-	char *prompt = "Command-Justice ";
+	char *prompt = "Command-Justice \n";
 
 	write(STDOUT_FILENO, prompt, _strlen(prompt));
+	display_env();
 }
 
 /**

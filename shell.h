@@ -17,6 +17,7 @@
 /**helpfun**/
 void new_line(void);
 int _execvp(const char *file, char *const argv[]);
+void display_env(void);
 
 /**mainshell**/
 int main(void);

@@ -55,3 +55,22 @@ int _execvp(const char *file, char *const argv[])
 	}
 	return (-1);
 }
+
+void display_env(void)
+{
+	int f;
+	char *value;
+	char *env_vars[] = {
+		"USER", "LANGUAGE", "COMPIZ_CONFIG_PROFILE", "C_IS", 
+		"DESKTOP_SESSION", "LOGNAME", "TERM", "PATH", "DISPLAY", NULL
+	};
+
+	for (f = 0; env_vars[f] != NULL; f++)
+	{
+		value = getenv(env_vars[f]);
+		if (value != NULL)
+		{
+			printf("%s=%s\n", env_vars[f], value);
+		}
+	}
+}

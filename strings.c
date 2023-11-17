@@ -68,7 +68,7 @@ int _strcmp(const char *s1, const char *s2)
  * Return: start of the sting
  */
 
-char *_strtok(char *str, const char *delim)
+/**char *_strtok(char *str, const char *delim)
 {
 	static char *lastok = NULL;
 	char *start;
@@ -96,7 +96,7 @@ char *_strtok(char *str, const char *delim)
 		return (NULL);
 	}
 
-	
+**/	
 
 /**
  * _strchr - A function that is used to find the first occurence of a speific
