@@ -32,7 +32,7 @@ int main(void)
 				exit(1);
 			}
 
-			if (_strcmp(command, "exit") == 0)
+			if (_strcmp(command, "exit ") == 0)
 			{
 				free(command);
 				break;
