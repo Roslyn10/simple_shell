@@ -9,6 +9,7 @@
 #include <signal.h>
 #include <fcntl.h>
 #include <string.h>
+#include <errno.h>
 #include <stdarg.h>
 #include <sys/wait.h>
 
@@ -107,8 +108,8 @@ int replace_vars(ino_t *info);
 int replace_string(char **old, char *new);
 
 /**getline.c**/
-ssize_t get_input(info_t*);
-int _getline(info_t*, char**, size_t*);
+ssize_t get_input(ino_t*);
+int _getline(ino_t*, char**, size_t*);
 void sigintHandler(int);
 
 #endif /**SHELL_H**/
