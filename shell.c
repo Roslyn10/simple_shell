@@ -12,7 +12,7 @@ void display_prompt(void)
 {
 	char *prompt = "Command-Justice \n";
 	write(STDOUT_FILENO, prompt, _strlen(prompt));
-	display_env();
+	/**display_env();**/
 }
 /**
  * read_command - A function that reads the input/command that the user types
