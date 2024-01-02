@@ -56,12 +56,18 @@ int _execvp(const char *file, char *const argv[])
 	return (-1);
 }
 
+/**
+ * display_env - A function that prints the env of the computer environment
+ * Description - Prints the env of the computer environment
+ * Return : Nothing
+ */
+
 void display_env(void)
 {
 	int f;
 	char *value;
 	char *env_vars[] = {
-		"USER", "LANGUAGE", "COMPIZ_CONFIG_PROFILE", "C_IS", 
+		"USER", "LANGUAGE", "COMPIZ_CONFIG_PROFILE", "C_IS",
 		"DESKTOP_SESSION", "LOGNAME", "TERM", "PATH", "DISPLAY", NULL
 	};
 

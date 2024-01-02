@@ -102,7 +102,7 @@ int _strcmp(const char *s1, const char *s2);
 
 /**vars**/
 /**int is_chain(ino_t *info, char *buf, size_t *p);**/
-/**void check_chain(ino_t *info, char *buf, size_t *p, size_t i, size_t len);**/
+/*void check_chain(ino_t *info, char *buf, size_t *p, size_t i, size_t len);*/
 /**int replace_alias(ino_t *info);**/
 /**int replace_vars(ino_t *info);**/
 /**int replace_string(char **old, char *new);**/

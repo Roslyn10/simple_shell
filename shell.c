@@ -11,6 +11,7 @@ void execute_command(char *command/**, ino_t *info**/);
 void display_prompt(void)
 {
 	char *prompt = "Command-Justice \n";
+
 	write(STDOUT_FILENO, prompt, _strlen(prompt));
 	/**display_env();**/
 }
@@ -24,6 +25,7 @@ char *read_command(void)
 	char *input = NULL;
 	size_t length = 0;
 	int bread;
+
 	display_prompt();
 	bread = getline(&input, &length, stdin);
 	if (bread == -1)
@@ -55,6 +57,7 @@ void execute_command(char *command)
 	/**const char *msg_pre = "hsh: ";**/
 	/**const char *msg_suf = ": not found\n";**/
 	char *token;
+
 	shell_count = 0;
 	shell_count++;
 	token = strtok(command, " ");
