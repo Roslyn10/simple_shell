@@ -72,23 +72,46 @@ char *_strtok(char *str, const char *delim)
 {
 	static char *lastok;
 	char *start;
-
-	lastok = NULL;
+	char *end;
 
 	if (str != NULL)
-		lastok = str;
+	{
+ 		lastok = str;
+	}
 	else if (lastok == NULL)
+	{
 		return (NULL);
+	}
 
 	start = lastok;
 
 	while (*start != '\0' && strchr(delim, *start) != NULL)
+	{
 		start++;
+	}
 
 	if (*start == '\0')
-		lastok == NULL;
+	{
+		lastok = NULL;
 		return (NULL);
+	}
+
+	end = start;
+	while (*end != '\0' && strchr(delim, *end) == NULL)
+		end++;
+
+	if (*end != '\0')
+	{
+		*end = '\0';
+		lastok = end + 1;
+	}
+	else
+	{
+		lastok = NULL;
+	}
+	return start;
 }
+
 /**
  * _strchr - A function that is used to find the first occurence of a speific
  * character

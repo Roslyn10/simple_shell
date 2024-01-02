@@ -10,7 +10,7 @@ void execute_command(char *command/**, ino_t *info**/);
  */
 void display_prompt(void)
 {
-	char *prompt = "Command-Justice \n";
+	char *prompt = "Command-Justice ";
 
 	write(STDOUT_FILENO, prompt, _strlen(prompt));
 	/**display_env();**/
